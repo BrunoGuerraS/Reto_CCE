@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'msnode' => [
+        'api_url'     => env('NODE_API_URL', 'http://127.0.0.1:3000'),
+        'admin_token' => env('NODE_ADMIN_TOKEN', ''), // puede quedar vacío
+    ],
+
 ];
