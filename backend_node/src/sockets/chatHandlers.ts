@@ -1,6 +1,7 @@
 import type { Server, Socket } from "socket.io";
 import { Presence, UserState } from "../types/chat";
 import { nowTimeLabel } from "../utils/time";
+import { getCurrentTitle } from "../state/appState";
 
 export const registerChatHandlers = (socketServer: Server): void => {
     const usersRegistry = new Map<string, UserState>();
@@ -16,6 +17,10 @@ export const registerChatHandlers = (socketServer: Server): void => {
     };
 
     socketServer.on("connection", (socketConnection: Socket) => {
+        const latestTitle = getCurrentTitle();
+        if (latestTitle) {
+            socketConnection.emit("title:update", { title: latestTitle });
+        }
 
         const socketId = socketConnection.id;
         const connectedUserName = String(socketConnection.data.name);
