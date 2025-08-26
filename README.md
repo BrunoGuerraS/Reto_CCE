@@ -97,7 +97,8 @@ CORS_ORIGINS=http://localhost:5173,http://localhost:8000
 DEFAULT_USERNAME=Anonimo
 ```
 
-### 2) Frontend React
+
+### 2) Frontend React Next
 
 ```bash
 cd frontend_next
@@ -110,6 +111,10 @@ npm run dev  # arranca Vite en http://localhost:4000 (por defecto)
 ```env
 NEXT_PUBLIC_SOCKET_URL=http://localhost:3000
 ```
+
+![web](./docs/images/Screenshot%202025-08-26%20at%209.33.35 AM.png)
+---
+![web](./docs/images/Screenshot%202025-08-26%20at%209.21.08 AM.png)
 
 ### 3) PHP con Laravel
 
@@ -127,7 +132,7 @@ php artisan serve
 # Base URL del API de Node (para cURL / Http::post)
 NODE_API_BASE_URL=http://localhost:3000
 ```
-
+![web](./docs/images/Screenshot%202025-08-26%20at%209.33.56 AM.png)
 ---
 
 ## Instrucciones de uso
@@ -165,6 +170,7 @@ NODE_API_BASE_URL=http://localhost:3000
     fromName: string; }`
   - `title:update` → `{ title: string }`
  
+
 
 
 
