@@ -103,13 +103,12 @@ DEFAULT_USERNAME=Anonimo
 cd frontend_next
 cp .env.example .env
 npm install
-npm run dev  # arranca Vite en http://localhost:5173 (por defecto)
+npm run dev  # arranca Vite en http://localhost:4000 (por defecto)
 ```
 
 **Variables `.env` (web/.env):**
 ```env
-VITE_SOCKET_URL=http://localhost:3000
-VITE_DEFAULT_USERNAME=Yo
+NEXT_PUBLIC_SOCKET_URL=http://localhost:3000
 ```
 
 ### 3) PHP con Laravel
