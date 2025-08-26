@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: 1px solid red;
+    height: 100vh;
+}
+
+#circle {
+    position: absolute;
+    /* <- clave */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgb(213, 247, 255);
+    top: 50px;
+    /* posición inicial opcional */
+    left: 50px;
+}
+
+.room {
+    display: block;
+    border: 2px solid #000;
+    margin-bottom: 20px;
+}
