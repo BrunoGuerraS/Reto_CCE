@@ -34,7 +34,6 @@ app.post("/admin/update-title", (req: Request, res: Response) => {
 
 app.post("/admin/broadcast", (req: Request, res: Response) => {
     const requestedMessage = String(req.body?.message ?? "").trim();
-    console.log("Broadcasting message:", requestedMessage);
     if (!requestedMessage) {
         return res.status(400).json({ error: "El campo 'message' es requerido." });
     }
