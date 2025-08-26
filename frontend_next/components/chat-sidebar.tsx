@@ -14,7 +14,6 @@ interface ChatSidebarProps {
 
 
 export function ChatSidebar({ users }: ChatSidebarProps) {
-  console.log(`${users[0].status} kajflkasjdlfjasl`)
   const { t } = useLanguage()
 
   const getStatusColor = (status: string) => {

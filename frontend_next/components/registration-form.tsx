@@ -12,7 +12,7 @@ import { useSocket } from "@/hooks/user-socket"
 export function RegistrationForm() {
   const [name, setName] = useState("")
   const [error, setError] = useState("")
-  const {register} = useSocket()
+  const { register } = useSocket()
   const { t } = useLanguage()
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -19,7 +19,6 @@ export function ChatInput({ onSendMessage }: ChatInputProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (message.trim()) {
-      console.log(message)
       onSendMessage(message)
       setMessage("")
     }
