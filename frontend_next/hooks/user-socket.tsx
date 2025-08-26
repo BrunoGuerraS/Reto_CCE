@@ -19,6 +19,7 @@ type SocketCtx = {
   users: User[];
   messages: ChatMsg[];
   connected: boolean;
+  title: string;
   register: (username: string) => void;
   sendMessage: (text: string) => void;
   disconnect: () => void;
@@ -34,6 +35,7 @@ export function SocketProvider({ children }: { children: React.ReactNode }) {
   const [users, setUsers] = useState<User[]>([]);
   const [messages, setMessages] = useState<ChatMsg[]>([]);
   const pendingNameRef = useRef<string>("");
+  const [title, setTitle] = useState("Chat CCE");
 
 
   useEffect(() => {
@@ -42,6 +44,7 @@ export function SocketProvider({ children }: { children: React.ReactNode }) {
       const name = pendingNameRef.current || (socket as any).auth?.username || "Anon";
       setMe({ id: socket.id!, name });
     };
+
     const onDisconnect = () => {
       setConnected(false);
       setMe((prev) => (prev ? { ...prev, id: "" } : null));
@@ -61,8 +64,12 @@ export function SocketProvider({ children }: { children: React.ReactNode }) {
     const onMessage = (m: ChatMsg) => {
       setMessages(prev => [...prev, m]);
     };
+
     const onTitleUpdate = ({ title }: { title: string }) => {
       document.title = title;
+      const titleEl = document.querySelector("title")
+      if (titleEl) titleEl.textContent = title;
+      setTitle(title);
     };
 
     socket.on("connect", onConnect);
@@ -101,8 +108,8 @@ export function SocketProvider({ children }: { children: React.ReactNode }) {
   };
 
   const value = useMemo(
-    () => ({ me, users, messages, connected, register, sendMessage, disconnect }),
-    [me, users, messages, connected]
+    () => ({ me, users, messages, connected, title, register, sendMessage, disconnect }),
+    [me, users, messages, connected, title]
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

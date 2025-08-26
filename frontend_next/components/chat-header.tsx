@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { MoreVertical, Phone, Video } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
-export function ChatHeader() {
+export function ChatHeader({title}: {title: string}) {
   const { t } = useLanguage()
 
   return (
@@ -13,7 +13,7 @@ export function ChatHeader() {
       <div className="flex items-center gap-3">
         <Image src="/logo.png" alt="Cámara de Comercio Exterior" width={40} height={40} className="rounded-full" />
         <div>
-          <h2 className="font-semibold text-foreground">{t("support")}</h2>
+          <h1 className="font-semibold text-foreground">{title}</h1>
           <p className="text-sm text-muted-foreground">{t("online")}</p>
         </div>
       </div>

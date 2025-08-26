@@ -10,6 +10,7 @@ interface ChatMessageProps {
 }
 
 export function ChatMessage({ message, isUser, timestamp, avatar, fromName }: ChatMessageProps) {
+  const isSystem = (fromName ?? "").toLowerCase() === "system"
   return (
     <div className={cn("flex gap-3 p-4", isUser && "flex-row-reverse")}>
       <Avatar className="h-8 w-8">
@@ -23,7 +24,11 @@ export function ChatMessage({ message, isUser, timestamp, avatar, fromName }: Ch
         <div
           className={cn(
             "rounded-lg px-3 py-2 text-sm",
-            isUser ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground",
+            isUser
+              ? "bg-primary text-primary-foreground"
+              : isSystem
+                ? "bg-sky-100 text-sky-900"
+                : "bg-muted text-muted-foreground"
           )}
         >
           {message}

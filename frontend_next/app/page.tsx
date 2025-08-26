@@ -10,7 +10,7 @@ import { useSocket } from "@/hooks/user-socket"
 
 
 export default function ChatApp() {
-  const { connected, users, messages, sendMessage } = useSocket();
+  const { connected, users, messages, sendMessage, title } = useSocket();
 
   if (!connected) return <RegistrationForm />;
 
@@ -18,7 +18,7 @@ export default function ChatApp() {
     <div className="flex h-[92vh] bg-background">
       <ChatSidebar users={users} />
       <div className="flex-1 flex flex-col">
-        <ChatHeader />
+        <ChatHeader title={title} />
         <div className="flex-1 overflow-y-auto">
           {messages.map((message) => (
             <ChatMessage
